@@ -46,8 +46,8 @@ probably has similar functionality, but again, this was useful for learning.
 Requires the python-keybinder package installed in order to work.
 
 The hotkey you choose is entered as a text string. Modifier keys are enclosed
-in <angle brackets>, and are followed by the main key. Example:
-"<Ctrl><Shift>F1"
+in &lt;angle brackets&gt;, and are followed by the main key. Example:
+"&lt;Ctrl&gt;&lt;Shift&gt;F1"
 
 ## Usage
 
