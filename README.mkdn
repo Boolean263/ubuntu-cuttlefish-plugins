@@ -1,0 +1,85 @@
+# Plugins for Ubuntu Cuttlefish
+
+## Intro
+
+[Ubuntu Cuttlefish](https://launchpad.net/cuttlefish) is a Gtk program
+similar to [EventGhost](http://www.eventghost.org/) for Windows, or
+[Tasker](http://tasker.dinglisch.net/) for Android: It waits patiently
+for some sort of user-defined stimulus to occur, and then when that happens,
+it performs a list of reflexes.
+
+_(I call it "Ubuntu Cuttlefish" here because (a) the name "cuttlefish"
+has [many meanings on github](https://github.com/search?q=cuttlefish&type=Repositories)
+and (b) it seems to be purpose-built for Ubuntu, since I've not seen it
+mentioned elsewhere.)_
+
+This repo is a collection of some fairly simple but hopefully useful plugins
+for cuttlefish, all written in Python.
+
+## The Plugins
+
+### Notify
+
+This is a simple plugin I created as an example (to myself) of how to create
+a functional cuttlefish action with configurable parameters. Cuttlefish
+has an option to show a notification when a reflex is triggered, but this
+lets you choose the text of the notification, and even add a picture if you
+want.
+
+### Wnck
+
+You can use this plugin to trigger an action based on a window appearing,
+disappearing, gaining focus, or losing focus. The four input fields are
+all optional, and if you leave them all blank, the reflex will trigger
+for any window. Since that's probably not very useful, you can use the
+xprop(1) command to inspect a window of interest to you, for help choosing
+values to refine cuttlefish's selection criteria. The WM_NAME prop gives
+you the window's name, the WM_CLASS prop gives you the window's type,
+and WM_WINDOW_ROLE gives you the window's role. Note that not all programs
+will provide all properties for all their windows.
+
+### CuttleKeybinder
+
+Perform an action when a certain key combination is pressed, no matter
+what application is currently in the foreground. Your window manager
+probably has similar functionality, but again, this was useful for learning.
+Requires the python-keybinder package installed in order to work.
+
+The hotkey you choose is entered as a text string. Modifier keys are enclosed
+in <angle brackets>, and are followed by the main key. Example:
+"<Ctrl><Shift>F1"
+
+## Usage
+
+First of all,
+you'll need to [install cuttlefish](https://launchpad.net/cuttlefish). As
+Cuttlefish only exists in the Ubuntu 12.04 repos you can add the PPA manually
+to your ``/etc/apt/sources.list`` ::
+
+    deb http://ppa.launchpad.net/noneed4anick/cuttlefish/ubuntu precise main
+    deb-src http://ppa.launchpad.net/noneed4anick/cuttlefish/ubuntu precise main
+
+And install via: ::
+
+    $ sudo apt-get update
+    $ sudo apt-get install cuttlefish
+
+Alternately you can build and install it manually; this is probably better,
+since it looks like some volunteers have picked up the half-idle project
+and are trying to keep it moving.
+
+After that, copy any of these plugins to your ``~/.cuttlefish/plugins``
+directory, and reload cuttlefish via its Edit → Plugins → Reload Plugins
+menu entry. You'll now have them available for your own actions and reactions.
+
+## Author
+
+David Perry (aka [Boolean263](https://github.com/Boolean263))
+
+## License
+
+GPL v3, same as cuttlefish itself. See LICENSE for details.
+
+## See Also
+
+* [cuttlefish-applekeyboard](https://github.com/mattoc/cuttlefish-applekeyboard)
