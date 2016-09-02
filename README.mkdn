@@ -49,6 +49,11 @@ The hotkey you choose is entered as a text string. Modifier keys are enclosed
 in &lt;angle brackets&gt;, and are followed by the main key. Example:
 "&lt;Ctrl&gt;&lt;Shift&gt;F1"
 
+### UDPMessage
+
+React when receiving a UDP message on a specific port. Optionally only
+react if the message body matches the regular expression you enter.
+
 ## Usage
 
 First of all,
